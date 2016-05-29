@@ -1,0 +1,80 @@
+/**
+ * Created by chandrimaghosh on 5/26/16.
+ */
+(function(){
+    angular
+        .module("WebAppMaker")
+        .factory("WebsiteService", WebsiteService);
+
+    var websites = [
+        { "_id": "123", "name": "Facebook",    "developerId": "456" },
+        { "_id": "234", "name": "Tweeter",     "developerId": "456" },
+        { "_id": "456", "name": "Gizmodo",     "developerId": "456" },
+        { "_id": "567", "name": "Tic Tac Toe", "developerId": "123" },
+        { "_id": "678", "name": "Checkers",    "developerId": "123" },
+        { "_id": "789", "name": "Chess",       "developerId": "234" }
+    ];
+
+    function WebsiteService() {
+        var api = {
+            createWebsite: createWebsite,
+            findWebsitesForUserId: findWebsitesForUserId,
+            deleteWebsite: deleteWebsite,
+            updateWebsite:updateWebsite,
+            findWebsiteById:findWebsiteById
+        };
+        return api;
+
+        function deleteWebsite(websiteId) {
+            console.log("deleted");
+            for(var i in websites) {
+                if(websites[i]._id === websiteId) {
+                    websites.splice(i, 1);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function createWebsite(developerId, name, desc) {
+            var newWebsite = {
+                _id: (new Date()).getTime()+"",
+                name: name,
+                description: desc,
+                developerId: developerId
+            };
+            websites.push(newWebsite);
+            return newWebsite;
+        }
+
+        function updateWebsite(websiteId, name,desc) {
+            for(var i in websites) {
+                if(websites[i]._id === websiteId) {
+                    websites[i].name = name;
+                    websites[i].description=desc;
+
+                    return true;
+                }
+            }
+            return false;
+        }
+        function findWebsitesForUserId(userId) {
+            var resultSet = [];
+            for(var i in websites) {
+                if(websites[i].developerId === userId) {
+                    resultSet.push(websites[i]);
+                }
+            }
+            return resultSet;
+        }
+        function findWebsiteById(websiteid) {
+            var resultSet = [];
+            for(var i in websites) {
+                if(websites[i]._id === websiteid) {
+                   return websites[i];
+                }
+            }
+            return null;
+        }
+    }
+})();
