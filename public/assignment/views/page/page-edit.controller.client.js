@@ -19,7 +19,7 @@
             console.log(vm.userId);
             console.log(vm.websiteId);
             console.log(vm.pageId);
-
+            vm.page = PageService.findPageById(vm.pageId);
         }
         init();
 
@@ -34,10 +34,10 @@
         }
 
 
-        function updatePage(name) {
+        function updatePage(name,title) {
             console.log("updatePage called with changed name"+name);
             console.log("updatePage called with changed name"+vm.pageId);
-           var result=  PageService.updatePage(vm.pageId,name);
+           var result=  PageService.updatePage(vm.pageId,name,title);
             if(result) {
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
             } else {

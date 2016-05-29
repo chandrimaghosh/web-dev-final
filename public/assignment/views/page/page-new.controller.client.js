@@ -18,14 +18,14 @@
         }
         init();
        
-        function createPage(name) {
+        function createPage(name,title) {
             console.log("name passed to service"+name);
             console.log("websiteid passed to service"+vm.websiteId);
 
-            var newPage = PageService.createPage(vm.websiteId, name);
+            var newPage = PageService.createPage(vm.websiteId, name,title);
             console.log("what is new page"+newPage);
 
-            
+           
             if(newPage) {
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
             } else {
