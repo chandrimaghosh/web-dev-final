@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="/assignment/page/page-list.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
@@ -12,7 +12,7 @@
                 Widgets
             </a>
             <p class="navbar-text pull-right">
-                <a href="/assignment/widget/widget-chooser.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
                   <span class="glyphicon glyphicon-plus">
                   </span>
                 </a>
@@ -22,84 +22,44 @@
 </nav>
 
 <div class="container">
+    {{model.pageId}}
+    {{model.userId}}
+    {{model.websiteId}}
+    {{model.widgetId}}
 
-    <div class="jga-widget">
+    <div ng-repeat="widget in model.widgets" class="jga-widget">
         <div class="jga-widget-tool">
-            <a href="widget-heading.view.client.html">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
-        <h1>GAWKER</h1>
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADER" ng-switch="widget.size">
+                <h1 ng-switch-when="1">{{widget.text}}</h1>
+                <h2 ng-switch-when="2">{{widget.text}}</h2>
+                <h3 ng-switch-when="3">{{widget.text}}</h3>
+                <h4 ng-switch-when="4">{{widget.text}}</h4>
+                <h5 ng-switch-when="5">{{widget.text}}</h5>
+                <h6 ng-switch-when="6">{{widget.text}}</h6>
+            </div>
+            <div ng-switch-when="HTML">
+                <div ng-bind-html="model.getSafeHtml(widget)"></div>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <img ng-src="{{widget.url}}" width="{{widget.width}}"/>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div ng-switch-default>
+                Unable to render widget
+            </div>
+        </div>
     </div>
 
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h4>Off-Duty Bomber Pilot Helps Land a United 737 After Captain Passes Out</h4>
-    </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="widget-image.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <img width="100%" src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Boeing_777_above_clouds,_crop.jpg"/>
-    </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <p class="first-text">This afternoon, in a scene plucked from one of my work-related anxiety dreams,
-            <em>New York Times</em> reporters Nick Corasaniti, Maggie Haberman, and Thomas Kaplan
-            <a href="https://www.facebook.com/nytimes/videos/10150812214919999/" rel="noopener" target="_blank">pitched stories to politics editor Carolyn Ryan on Facebook Live</a>
-            while thousands of people watched it happen.</p>
-    </div>
-
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="widget-heading.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h4>Mid-Air Collision: Bashkirian Airlines Flight 2937 & DHL Flight 611</h4>
-    </div>
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="widget-youtube.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <iframe width="100%" src="https://www.youtube.com/embed/hfqDmd9uxLk" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <div class="jga-widget">
-        <div class="jga-widget-tool">
-            <a href="#">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <p class="first-text">The Boeing 777 is a family of long-range wide-body twin-engine
-            jet airliners developed and manufactured by Boeing Commercial Airplanes.
-            It is the world's largest twinjet and has a typical seating capacity for
-            314 to 451 passengers, with a range of 5,235 to 9,500 nautical miles (9,695 to 17,594 km).
-            Commonly referred to as the "Triple Seven".</p>
-    </div>
 </div>
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
@@ -112,7 +72,7 @@
                 <span class="glyphicon glyphicon-eye-open"></span> </a>  </p>
 
         <p class="navbar-text pull-right ">
-            <a href="/assignment/user/profile.html" >
+            <a href="#/profile/{{model.userId}}" >
                 <span class="glyphicon glyphicon-user"></span> </a>  </p>
     </div>
 </nav>

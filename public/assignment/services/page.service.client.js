@@ -40,18 +40,15 @@
             _id: (new Date()).getTime()+"",
             name: name,
             title:title,
-            websiteID: websiteID
+            websiteId: websiteID
         };
-
-         pages.push(newPage);
-
+        pages.push(newPage);
         console.log("whats this new page"+newPage._id);
         console.log("whats this new page"+newPage.name);
         console.log("whats this new page"+newPage.websiteID)
         console.log("pages after push"+pages.length)
 
         return newPage;
-
     }
 
     function findPageById(pageId) {

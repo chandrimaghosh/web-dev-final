@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left ">
-                <a href="widget-list.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
           <span class="glyphicon  glyphicon-chevron-left">
           </span>
                 </a>
@@ -22,7 +22,7 @@
 
     <div class="mylinespacing">
 
-        <a href="widget-heading.view.client.html" class="clearfix">Header</a>
+        <a ng-click="model.chooseEdit(model.header)" class="clearfix">Header</a>
 
         <a href="#" class="clearfix">Label</a>
 
@@ -34,9 +34,9 @@
 
         <a href="#" class="clearfix">Button</a>
 
-        <a href="widget-image.view.client.html" class="clearfix">Image</a>
+        <a  ng-click="model.chooseEdit(model.image)" class="clearfix">Image</a>
 
-        <a href="widget-youtube.view.client.html" class="clearfix">YouTube</a>
+        <a  ng-click="model.chooseEdit(model.youtube)" class="clearfix">YouTube</a>
 
         <a href="#" class="clearfix">Data Table </a>
 
@@ -49,7 +49,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right ">
-            <a href="/assignment/user/profile.html" >
+            <a href="#/profile/{{model.userId}}" >
                 <span class="glyphicon glyphicon-user"></span> </a>  </p>
     </div>
 </nav>

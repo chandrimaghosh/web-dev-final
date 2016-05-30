@@ -18,7 +18,7 @@
         function init() {
             console.log("Invoked");
             console.log( "userid on pagelistis"+vm.userId);
-            console.log("websiteid on pagelistis"+vm.websiteId);
+            console.log("pageId on pagelistis"+vm.pageId);
             
 
             vm.page = PageService.findPageByWebsiteId(vm.websiteId);
