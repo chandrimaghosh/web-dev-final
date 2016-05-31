@@ -11,10 +11,22 @@
             <input  ng-model="model.widget.text" type="text" class="form-control" id="text" placeholder="media text">
         </div>
 
+
+
+
+
         <div class="form-group">
             <label for="size">Size</label>
-            <input ng-model="model.widget.size" type="text" class="form-control" id="size" placeholder="3">
-        </div>
+            <select ng-model="model.widget.size" class="form-control" id="size">
+                <option selected="selected">{{model.widget.size}}</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
+            </div>
+
 
     </form>
 

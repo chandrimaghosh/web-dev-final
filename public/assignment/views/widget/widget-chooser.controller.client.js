@@ -21,38 +21,38 @@
 
 
         
-        function chooseEdit(wType) {
-            console.log("edit");
-            console.log(wType);
+                function chooseEdit(wType) {
+                    console.log("edit");
+                    console.log(wType);
 
-            if(wType==="youtube")
-            {
-               var widgetId= WidgetService.createWidgetTypeandId("YOUTUBE",vm.pageId);
+                    if(wType==="youtube")
+                    {
+                       var widgetId= WidgetService.createWidgetTypeandId("YOUTUBE",vm.pageId);
 
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+widgetId+"");
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+widgetId+"");
+
+                    }
+                    if(wType==="header")
+
+                    {
+                        console.log("header");
+                         var widgetId= WidgetService.createWidgetTypeandId("HEADER",vm.pageId);
+
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+widgetId+"");
+
+                    }
+                    if(wType==="image")
+                    {
+                        console.log("image");
+                        var widgetId= WidgetService.createWidgetTypeandId("IMAGE",vm.pageId);
+
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+widgetId+"");
+
+                    }
+
+
+                }
+
 
             }
-            if(wType==="header")
-
-            {
-                console.log("header");
-                var widgetId= WidgetService.createWidgetTypeandId("HEADER",vm.pageId);
-
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+widgetId+"");
-
-            }
-            if(wType==="image")
-            {
-                console.log("image");
-                var widgetId= WidgetService.createWidgetTypeandId("IMAGE",vm.pageId);
-
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+widgetId+"");
-
-            }
-
-            
-        }
-
-
-    }
-})();
+        })();
