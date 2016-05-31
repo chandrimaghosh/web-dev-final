@@ -36,11 +36,18 @@
             createWidgetTypeandId: createWidgetTypeandId
         };
         return api;
+
         function findWidgetsForPageId(pageId) {
             var resultSet = [];
             for (var i in widgets) {
                 if (widgets[i].pageId === pageId) {
-                    resultSet.push(widgets[i]);
+                    if((widgets[i].widgetType==="YOUTUBE"||widgets[i].widgetType==="IMAGE") && !("width" in widgets[i]))
+                    {}
+                    if(widgets[i].widgetType==="HEADER" && !("size" in widgets[i]))
+                    {}
+                    else
+                    {resultSet.push(widgets[i]);}
+
                 }
             }
             return resultSet;
