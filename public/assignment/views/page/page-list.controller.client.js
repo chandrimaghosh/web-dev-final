@@ -1,31 +1,23 @@
 /**
  * Created by chandrimaghosh on 5/28/16.
  */
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("PageListController", PageListController);
-
     function PageListController($routeParams, PageService) {
         var vm = this;
         vm.userId = $routeParams.userId;
         vm.websiteId = $routeParams.websiteId;
-        vm.pageId=$routeParams.pageId;
-
-
-       
-
+        vm.pageId = $routeParams.pageId;
         function init() {
             console.log("Invoked");
-            console.log( "userid on pagelistis"+vm.userId);
-            console.log("pageId on pagelistis"+vm.pageId);
-            
-
+            console.log("userid on pagelistis" + vm.userId);
+            console.log("pageId on pagelistis" + vm.pageId);
             vm.page = PageService.findPageByWebsiteId(vm.websiteId);
-            console.log("this is vm.page"+vm.page);
+            console.log("this is vm.page" + vm.page);
         }
-        init();
 
-        
+        init();
     }
 })();

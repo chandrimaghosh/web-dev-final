@@ -2,7 +2,8 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left ">
-                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+                   class="navbar-link">
           <span class="glyphicon  glyphicon-chevron-left">
           </span>
                 </a>
@@ -10,47 +11,28 @@
             <a class="navbar-brand" href="#">
                 Choose Widget
             </a>
-
         </div>
     </div>
 </nav>
-
-
-<div   class="container">
-
-
-
+<div class="container">
     <div class="mylinespacing">
-
         <a ng-click="model.chooseEdit(model.header)" class="clearfix">Header</a>
-
         <a href="#" class="clearfix">Label</a>
-
         <a href="#" class="clearfix">HTML</a>
-
         <a href="#" class="clearfix">Text Input</a>
-
         <a href="#" class="clearfix">Link</a>
-
         <a href="#" class="clearfix">Button</a>
-
-        <a  ng-click="model.chooseEdit(model.image)" class="clearfix">Image</a>
-
-        <a  ng-click="model.chooseEdit(model.youtube)" class="clearfix">YouTube</a>
-
+        <a ng-click="model.chooseEdit(model.image)" class="clearfix">Image</a>
+        <a ng-click="model.chooseEdit(model.youtube)" class="clearfix">YouTube</a>
         <a href="#" class="clearfix">Data Table </a>
-
         <a href="#" class="clearfix">Repeater</a>
-
-
     </div>
 </div>
-
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <p class="navbar-text pull-right ">
-            <a href="#/profile/{{model.userId}}" >
-                <span class="glyphicon glyphicon-user"></span> </a>  </p>
+            <a href="#/profile/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span> </a></p>
     </div>
 </nav>
 

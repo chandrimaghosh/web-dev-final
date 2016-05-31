@@ -1,15 +1,12 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left ">
-
                 <a href="#/user/{{model.userId}}/website" class="navbar-link">
           <span class="glyphicon  glyphicon-chevron-left">
           </span>
                 </a>
             </p>
-
             <a class="navbar-brand" href="#">
                 Edit Website
             </a>
@@ -22,34 +19,28 @@
         </div>
     </div>
 </nav>
-
-<div   class="container">
-
+<div class="container">
     <form>
         <div class="form-group">
             <label for="username">Website Name</label>
-            <input ng-model="model.website.name" type="text" class="form-control" id="username"  placeholder="Google">
-</div>
+            <input ng-model="model.website.name" type="text" class="form-control" id="username" placeholder="Google">
+        </div>
         <div class="form-group">
             <label for="comment">Application Description</label>
-            <textarea  ng-model="model.website.description" class="form-control" rows="5" id="comment" placeholder="Google's generation of page titles and descriptions (or snippets) is completely automated and takes into account both the content of a page as well "></textarea>
+            <textarea ng-model="model.website.description" class="form-control" rows="5" id="comment"
+                      placeholder="Google's generation of page titles and descriptions (or snippets) is completely automated and takes into account both the content of a page as well "></textarea>
         </div>
-
     </form>
-
-    <a  ng-click="model.deleteWebsite(model.websiteId)" class="btn btn-danger  btn-block"
-       >Delete</a>
+    <a ng-click="model.deleteWebsite(model.websiteId)" class="btn btn-danger  btn-block"
+    >Delete</a>
 </div>
-
 <nav class="navbar navbar-default navbar-fixed-bottom">
-
     <div class="container-fluid">
-
         <p class="navbar-text  ">
-            <a href="#" class="navbar-link navbar-text" >
+            <a href="#" class="navbar-link navbar-text">
                 <span class="glyphicon glyphicon-share-alt"></span> </a>
-            <a href="#/profile/{{model.userId}}" >
-                <span class="glyphicon glyphicon-user pull-right"></span> </a>  </p>
+            <a href="#/profile/{{model.userId}}">
+                <span class="glyphicon glyphicon-user pull-right"></span> </a></p>
     </div>
 </nav>
 
