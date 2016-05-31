@@ -41,10 +41,10 @@
             var resultSet = [];
             for (var i in widgets) {
                 if (widgets[i].pageId === pageId) {
-                    if((widgets[i].widgetType==="YOUTUBE"||widgets[i].widgetType==="IMAGE") && !("width" in widgets[i]))
-                    {}
-                    if(widgets[i].widgetType==="HEADER" && !("size" in widgets[i]))
-                    {}
+                    if((widgets[i].widgetType==="YOUTUBE"||widgets[i].widgetType==="IMAGE") &&( !("width" in widgets[i])|| (widgets[i].url==="")))
+                    {console.log("happened")}
+                     else if(widgets[i].widgetType==="HEADER" && !("size" in widgets[i]))
+                     {}
                     else
                     {resultSet.push(widgets[i]);}
 
