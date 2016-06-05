@@ -118,29 +118,37 @@ module.exports = function(app) {
     }
 
     function uploadImage(req, res) {
+        var myFile = req.file;
+        var pageId = req.body.pageId;
+        var websiteId = req.body.websiteId;
+        var widgetId = req.body.widgetId;
 
-        var widgetId      = req.body.widgetId;
-        var width         = req.body.width;
-        var myFile        = req.file;
-        var pageId=req.body.pageId;
-        var websiteId=req.body.websiteId;
-        var userId=req.body.userId;
-
-        var originalname  = myFile.originalname; // file name on user's computer
-        var filename      = myFile.filename;     // new file name in upload folder
-        var path          = myFile.path;         // full path of uploaded file
-        var destination   = myFile.destination;  // folder where file is saved to
-        var size          = myFile.size;
-        var mimetype      = myFile.mimetype;
-
-        for(var i in widgets) {
-            if(widgets[i]._id === widgetId) {
-                widgets[i].url = "/uploads/"+filename;
-            }
+        var userId = req.body.userId;
+        if (myFile == null) {
+            res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+            return;
         }
-       // res.send(200);
+        else {
 
 
-        res.redirect("/assignment/#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+
+        var width = req.body.width;
+            var myFile = req.file;
+
+        var originalname = myFile.originalname; // file name on user's computer
+        var filename = myFile.filename;     // new file name in upload folder
+        var path = myFile.path;         // full path of uploaded file
+        var destination = myFile.destination;  // folder where file is saved to
+        var size = myFile.size;
+        var mimetype = myFile.mimetype;
+
+
+            for (var i in widgets) {
+                if (widgets[i]._id === widgetId) {
+                    widgets[i].url = "/uploads/" + filename;
+                }
+            }
+            res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+        }
     }
 };
