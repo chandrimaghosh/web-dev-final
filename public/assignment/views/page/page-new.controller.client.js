@@ -22,7 +22,8 @@
 
         init();
         function createPage(name, title) {
-            console.log("new page create was called")
+           if (name)
+           {
 
              PageService.createPage(vm.websiteId, name, title)
                  .then(
@@ -40,6 +41,8 @@
 
 
 
+        }
+           else {vm.error="name is required"}
         }
     }
 })();

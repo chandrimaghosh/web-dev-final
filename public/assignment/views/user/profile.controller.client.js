@@ -22,9 +22,12 @@
 
         init();
         function updateUser(newUser) {
+
+
             UserService.updateUser(id, newUser)
             .then(
                 function (response) {
+                    
                     vm.success="Profile saved successfully"
 
             },
