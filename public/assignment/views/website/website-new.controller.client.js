@@ -10,6 +10,7 @@
         vm.userId = $routeParams.userId;
         vm.createWebsite = createWebsite;
         function createWebsite(name, description) {
+            console.log("new wesite description is+"+description)
 
               WebsiteService.createWebsite(vm.userId, name, description)
               .then(function (response) {

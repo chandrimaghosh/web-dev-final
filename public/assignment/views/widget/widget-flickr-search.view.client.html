@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="/assignment/page/page-list.html" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
@@ -10,12 +10,7 @@
             <a class="navbar-brand" href="#">
                 Search Flickr
             </a>
-            <p class="navbar-text pull-right">
-                <a href="/assignment/widget/widget-chooser.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
-                  </span>
-                </a>
-            </p>
+
         </div>
     </div>
 </nav>
@@ -33,7 +28,7 @@
 
     <div class="row">
         <div ng-repeat="photo in model.photos.photo" class="col-xs-4">
-            <img width="100%" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
+            <img width="100%" ng-click="model.selectPhoto(photo)" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
         </div>
     </div>
 

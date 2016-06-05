@@ -14,7 +14,8 @@
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
             deleteWidget: deleteWidget,
-            createWidgetTypeandId: createWidgetTypeandId
+            createWidgetTypeandId: createWidgetTypeandId,
+            updateFlickrUrl:updateFlickrUrl
         };
         return api;
 
@@ -55,6 +56,16 @@
             var url = "/api/widget/" + widgetId;
             return $http.put(url, widget);
 
+
+        }
+
+        function updateFlickrUrl(widgetId, url) {
+            var widget = {
+                url:url
+
+            };
+            var url = "/api/widget/" + widgetId;
+            return $http.put(url, widget);
 
         }
 

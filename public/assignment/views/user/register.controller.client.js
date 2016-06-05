@@ -15,23 +15,22 @@
         }
 
         init();
-        function createUser(username, password) {
-
-             UserService.createUser(username, password)
-
-
-            .then(function (response) {
-                var newusercreated=response.data;
-                vm.user=newusercreated;
-
-
-                if (newusercreated) {
-                    $location.url("/profile/" + newusercreated._id);
-                } else {
-                    vm.error = "Unable to create User";
-                }
-            });
-
+        function createUser(username, password, password2) {
+            if (password !== password2) {
+                vm.error = "passwords dont match"
+            }
+            else {
+                UserService.createUser(username, password)
+                    .then(function (response) {
+                        var newusercreated = response.data;
+                        vm.user = newusercreated;
+                        if (newusercreated) {
+                            $location.url("/profile/" + newusercreated._id);
+                        } else {
+                            vm.error = "Unable to create User";
+                        }
+                    });
+            }
         }
     }
 })();

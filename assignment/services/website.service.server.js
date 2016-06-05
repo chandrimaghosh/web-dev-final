@@ -23,7 +23,7 @@ module.exports = function(app) {
         var newWebsite = {
             _id: (new Date()).getTime() + "",
             name: website.name,
-            description: website.desc,
+            description: website.description,
             developerId: website.developerId
         };
         websites.push(newWebsite);
