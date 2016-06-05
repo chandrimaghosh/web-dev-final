@@ -13,28 +13,46 @@
         var pageId = $routeParams.pageId;
 
         function init() {
-            console.log("invoked edit controller");
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+            console.log("invoked edit controller"+vm.widgetId);
+              WidgetService.findWidgetById(vm.widgetId)
+                  .then(function (response) {
+                      vm.widget=response.data;
+
+                  });
         }
 
         init();
         function updateWidget(name, text, size, width, url) {
             console.log("updateWidetcalled");
-            var result = WidgetService.updateWidget(vm.widgetId, name, text, size, width, url);
-            if (result) {
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
-            } else {
-                vm.error = "Unable to update widget";
-            }
+            WidgetService.updateWidget(vm.widgetId, name, text, size, width, url)
+                .then(
+                    function (response) {
+                        var result =response.data;
+                        if (result) {
+                            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                        } else {
+                            vm.error = "Unable to update widget";
+                        }
+
+                    }
+                );
+
         }
 
         function deleteWidget(widgetId) {
-            var result = WidgetService.deleteWidget(widgetId);
-            if (result) {
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
-            } else {
-                vm.error = "Unable to delete widget";
-            }
+            WidgetService.deleteWidget(widgetId)
+                .then(
+                    function (response) {
+                        var result=response.data;
+                        if (result) {
+                            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                        } else {
+                            vm.error = "Unable to delete widget";
+                        }
+
+                    }
+                );
+
         }
     }
 })();

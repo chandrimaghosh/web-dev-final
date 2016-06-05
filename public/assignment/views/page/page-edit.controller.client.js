@@ -13,32 +13,47 @@
         vm.deletePage = deletePage;
         vm.updatePage = updatePage;
         function init() {
-            console.log("Invoked Page Edit");
-            console.log(vm.userId);
-            console.log(vm.websiteId);
-            console.log(vm.pageId);
-            vm.page = PageService.findPageById(vm.pageId);
+
+           PageService.findPageById(vm.pageId)
+               .then(function (response) {
+                   vm.page =response.data;
+
+               })
         }
 
         init();
         function deletePage(pageId) {
-            var result = PageService.deletePage(pageId);
-            if (result) {
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
-            } else {
-                vm.error = "Unable to delete page";
-            }
+             PageService.deletePage(pageId)
+                 .then(
+                     function (response) {
+                         var result =response.data;
+                         if (result) {
+                             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                         } else {
+                             vm.error = "Unable to delete page";
+                         }
+
+
+                     }
+                 );
+
+
         }
 
         function updatePage(name, title) {
-            console.log("updatePage called with changed name" + name);
-            console.log("updatePage called with changed name" + vm.pageId);
-            var result = PageService.updatePage(vm.pageId, name, title);
-            if (result) {
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
-            } else {
-                vm.error = "Unable to delete page";
-            }
+
+           PageService.updatePage(vm.pageId, name, title)
+               .then(function (response) {
+                   var result=response.data
+                   if (result) {
+                       $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                   } else {
+                       vm.error = "Unable to delete page";
+                   }
+
+
+               });
+
         }
     }
 })();

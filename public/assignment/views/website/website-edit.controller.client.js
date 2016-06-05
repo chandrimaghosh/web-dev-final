@@ -12,7 +12,12 @@
         vm.deleteWebsite = deleteWebsite;
         vm.updateWebsite = updateWebsite;
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+                 WebsiteService.findWebsiteById(vm.websiteId)
+                 .then(function (response) {
+                     vm.website =response.data;
+                     console.log(vm.website);
+
+                 });
         }
 
         init();
@@ -26,12 +31,19 @@
         }
 
         function updateWebsite(name, desc) {
-            var result = WebsiteService.updateWebsite(vm.websiteId, name, desc);
-            if (result) {
-                $location.url("/user/" + vm.userId + "/website");
-            } else {
-                vm.error = "Unable to delete website";
-            }
+            WebsiteService.updateWebsite(vm.websiteId, name, desc)
+                .then(
+                    function (response) {
+                        var result =response.data;
+                        if (result) {
+                            $location.url("/user/" + vm.userId + "/website");
+                        } else {
+                            vm.error = "Unable to update website";
+                        }
+
+                    }
+                );
+
         }
     }
 })();

@@ -16,16 +16,22 @@
 
         init();
         function createUser(username, password) {
-            console.log("here");
-            console.log("username is" + username);
-            console.log("password is" + password);
-            var newUser = UserService.createUser(username, password);
-            var newusercreated = UserService.findUserByUsername(username);
-            if (newUser) {
-                $location.url("/profile/" + newusercreated._id);
-            } else {
-                vm.error = "Unable to create User";
-            }
+
+             UserService.createUser(username, password)
+
+
+            .then(function (response) {
+                var newusercreated=response.data;
+                vm.user=newusercreated;
+
+
+                if (newusercreated) {
+                    $location.url("/profile/" + newusercreated._id);
+                } else {
+                    vm.error = "Unable to create User";
+                }
+            });
+
         }
     }
 })();

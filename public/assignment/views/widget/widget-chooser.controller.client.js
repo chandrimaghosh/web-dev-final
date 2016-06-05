@@ -19,18 +19,35 @@
             console.log("edit");
             console.log(wType);
             if (wType === "youtube") {
-                var widgetId = WidgetService.createWidgetTypeandId("YOUTUBE", vm.pageId);
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+                  WidgetService.createWidgetTypeandId("YOUTUBE", vm.pageId)
+                      .then(function (response) {
+                          var widgetId=response.data
+                          $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+
+
+                      });
+
             }
             if (wType === "header") {
                 console.log("header");
-                var widgetId = WidgetService.createWidgetTypeandId("HEADER", vm.pageId);
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+                 WidgetService.createWidgetTypeandId("HEADER", vm.pageId)
+                     .then(function (response) {
+                         var widgetId =response.data;
+                         $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+
+                     });
             }
             if (wType === "image") {
                 console.log("image");
-                var widgetId = WidgetService.createWidgetTypeandId("IMAGE", vm.pageId);
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+                WidgetService.createWidgetTypeandId("IMAGE", vm.pageId)
+                    .then(
+                        function (response) {
+                            var widgetId =response.data
+                            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+
+
+                        }
+                    );
             }
         }
     }

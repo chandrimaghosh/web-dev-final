@@ -11,19 +11,35 @@
         vm.websiteId = $routeParams.websiteId;
         vm.createPage = createPage;
         function init() {
-            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
+             PageService.findPageByWebsiteId(vm.websiteId)
+                 .then(
+                     function (response) {
+                         vm.pages =response.data;
+
+                     }
+                 );
         }
 
         init();
         function createPage(name, title) {
+            console.log("new page create was called")
 
-            var newPage = PageService.createPage(vm.websiteId, name, title);
-            console.log("what is new page" + newPage);
-            if (newPage) {
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
-            } else {
-                vm.error = "Unable to create Page";
-            }
+             PageService.createPage(vm.websiteId, name, title)
+                 .then(
+                     function (response) {
+                         var newPage =response.data;
+                         console.log("this got created"+newPage.websiteId+newPage._id+newPage.name);
+                         if (newPage) {
+                             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                         } else {
+                             vm.error = "Unable to create Page";
+                         }
+
+                     }
+                 );
+
+
+
         }
     }
 })();

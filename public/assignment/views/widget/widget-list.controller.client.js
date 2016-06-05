@@ -16,10 +16,20 @@
         vm.getSafeUrl = getSafeUrl;
         function init() {
             console.log("init called for widgetlist with page id" + vm.userId + "and websiteId" + vm.websiteId + vm.widgetId);
-            vm.widgets = WidgetService.findWidgetsForPageId(pageId);
+              WidgetService.findWidgetsForPageId(pageId)
+                  .then(
+                      function (response) {
+                          vm.widgets=response.data;
+
+                          $(".container")   
+                              .sortable({axis: "y"});
+
+                      }
+                  );
         }
 
         init();
+
         function getSafeHtml(widget) {
             return $sce.trustAsHtml(widget.text);
         }
@@ -30,5 +40,9 @@
             var url = "https://www.youtube.com/embed/" + id;
             return $sce.trustAsResourceUrl(url);
         }
+
+
     }
+
+
 })();

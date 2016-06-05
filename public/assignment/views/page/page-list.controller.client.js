@@ -11,13 +11,17 @@
         vm.websiteId = $routeParams.websiteId;
         vm.pageId = $routeParams.pageId;
         function init() {
-            console.log("Invoked");
-            console.log("userid on pagelistis" + vm.userId);
-            console.log("pageId on pagelistis" + vm.pageId);
-            vm.page = PageService.findPageByWebsiteId(vm.websiteId);
-            console.log("this is vm.page" + vm.page);
-        }
 
+
+                PageService.findPageByWebsiteId(vm.websiteId)
+                    .then(
+                        function (response) {
+                            vm.page =response.data;
+
+                        }
+                    );
+
+        }
         init();
     }
 })();
