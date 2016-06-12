@@ -16,6 +16,8 @@ module.exports = function(app,models) {
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
+    app.put ("/api/website/:websiteID/page/:pageId/startIndex/:startIndex/endIndex/:endIndex",sortWidget)
+
 
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
 
@@ -93,6 +95,31 @@ module.exports = function(app,models) {
                     res.statusCode(404).send(error);
                 }
             );
+
+
+    }
+
+    function sortWidget(req, res) {
+        var websiteId=req.params.websiteId;
+        var pageId=req.params.pageId;
+        var startIndex=req.params.startIndex;
+        var endIndex=req.params.endIndex;
+        console.log("*********server reached**********"+endIndex);
+        widgetModel
+            .reorderWidget(pageId,startIndex, endIndex)
+            .then(
+                function(widgets) {
+                    console.log(widgets);
+                    res.json(200);
+                },
+                function(error) {
+                    res.statusCode(404).send(error);
+                }
+            );
+
+
+
+
 
 
     }

@@ -33,7 +33,11 @@ module.exports = function() {
 
         formatted:Boolean,
 
-        dateCreated : {type : Date, default: Date.now}
+        dateCreated : {type : Date, default: Date.now},
+
+        order     : { type: Number, default: 0 }
+
+
     }, {collection: "assignment.widget"});
 
     return WidgetSchema;

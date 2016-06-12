@@ -15,7 +15,8 @@
             updateWidget: updateWidget,
             deleteWidget: deleteWidget,
             createWidgetTypeandId: createWidgetTypeandId,
-            updateFlickrUrl:updateFlickrUrl
+            updateFlickrUrl:updateFlickrUrl,
+            sortWidget: sortWidget,
         };
         return api;
 
@@ -78,5 +79,11 @@
             return $http.delete(url);
 
         }
+
+
+            function sortWidget(websiteId, pageId, startIndex, endIndex) {
+                console.log("sort widget service client called*************")
+                return $http.put("/api/website/"+websiteId+"/page/"+pageId+"/startIndex/"+startIndex+"/endIndex/"+endIndex);
+            }
     }
 })();

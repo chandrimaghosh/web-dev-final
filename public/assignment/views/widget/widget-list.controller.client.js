@@ -14,8 +14,8 @@
         var pageId = $routeParams.pageId;
         vm.getSafeHtml = getSafeHtml;
         vm.getSafeUrl = getSafeUrl;
+        vm.sortWidget=sortWidget;
         function init() {
-            console.log("init called for widgetlist with page id" + vm.userId + "and websiteId" + vm.websiteId + vm.widgetId);
               WidgetService.findWidgetsForPageId(pageId)
                   .then(
                       function (response) {
@@ -32,6 +32,21 @@
 
         function getSafeHtml(widget) {
             return $sce.trustAsHtml(widget.text);
+        }
+
+        function sortWidget(start, end) {
+            console.log("***********start**************",start);
+            console.log("******end*****",end);
+            WidgetService
+                .sortWidget(vm.websiteId, vm.pageId, start, end)
+                .then(
+                    function (response) {
+                        init();
+                    },
+                    function (err) {
+                        vm.error = err;
+                    }
+                );
         }
 
         function getSafeUrl(widget) {
