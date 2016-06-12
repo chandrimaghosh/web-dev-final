@@ -22,21 +22,25 @@
         }
 
         init();
-        function updateWidget(name, text, size, width, url) {
-            console.log("updateWidetcalled");
-            WidgetService.updateWidget(vm.widgetId, name, text, size, width, url)
-                .then(
-                    function (response) {
-                        var result =response.data;
-                        if (result) {
-                            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
-                        } else {
-                            vm.error = "Unable to update widget";
+        function updateWidget(name, text, size, width, url,formatted,rows,placeholder) {
+            if (name) {
+                console.log("updateWidetcalled");
+                WidgetService.updateWidget(vm.widgetId, name, text, size, width, url,formatted,rows,placeholder)
+                    .then(
+                        function (response) {
+                            var result = response.data;
+                            if (result) {
+                                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                            } else {
+                                vm.error = "Unable to update widget";
+                            }
                         }
+                    );
 
-                    }
-                );
-
+            }
+            else {
+                vm.error="Please enter name"
+            }
         }
 
         function deleteWidget(widgetId) {

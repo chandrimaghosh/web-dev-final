@@ -17,7 +17,20 @@
         init();
         function createUser(username, password, password2) {
             if (password !== password2) {
-                vm.error = "passwords dont match"
+                vm.error = "passwords dont match";
+
+            }
+                else if(!(password))
+            {
+                vm.error = "please enter password"
+            }
+            else if(!(password2))
+            {
+                vm.error = "please enter password again to verify"
+            }
+            else if(!(username))
+            {
+                vm.error = "please enter username"
             }
             else {
                 UserService.createUser(username, password)

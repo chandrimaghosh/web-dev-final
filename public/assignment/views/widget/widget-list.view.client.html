@@ -28,7 +28,7 @@
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
         </div>
-        <div ng-switch="widget.widgetType">
+        <div ng-switch="widget.type">
             <div ng-switch-when="HEADER" ng-switch="widget.size">
                 <h1 ng-switch-when="1">{{widget.text}}</h1>
                 <h2 ng-switch-when="2">{{widget.text}}</h2>
@@ -43,10 +43,25 @@
             <div ng-switch-when="IMAGE">
                 <img ng-src="{{widget.url}}" width="{{widget.width}}"/>
             </div>
-            <div ng-switch-when="YOUTUBE">
+            <div ng-switch-when="YOUTUBE" class="youtube-widget">
                 <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0"
                         allowfullscreen></iframe>
             </div>
+            <div ng-switch-when="INPUT">
+                <input ng-if="!widget.formatted && (!widget.rows || widget.rows===1)"
+                       name="{{widget.name}}"
+                       id="{{widget._id}}"
+                       value="{{widget.text}}"
+                       placeholder="{{widget.placeholder}}"
+                       class="form-control"/>
+                <textarea ng-if="widget.rows > 1 || widget.formatted"
+                          name="{{widget.name}}"
+                          rows="{{widget.rows}}"
+                          id="{{widget._id}}"
+                          placeholder="{{widget.placeholder}}"
+                          class="form-control">{{widget.text}}</textarea>
+            </div>
+
             <div ng-switch-default>
                 Unable to render widget
             </div>

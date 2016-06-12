@@ -1,30 +1,14 @@
 /**
  * Created by chandrimaghosh on 6/3/16.
  */
-module.exports = function(app) {
+module.exports = function(app,models) {
+
+    var widgetModel=models.widgetModel;
+
     var multer = require('multer'); // npm install multer --save
     var upload = multer({ dest: __dirname+'/../../public/uploads' });
 
-    var widgets = [
-        {"_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
-        {"_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-        {
-            "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-            "url": "http://lorempixel.com/400/200/"
-        },
-        {
-            "_id": "456",
-            "widgetType": "HTML",
-            "pageId": "321",
-            "text": '<p class="first-text">Investing in undersea internet cables has been a <a href="http://gizmodo.com/why-more-technology-giants-are-paying-to-lay-their-own-1703904291">big part of data strategy </a>plans for tech giants in recent years. Now Microsoft and Facebook are teaming up for the mother of all cables: A 4,100-mile monster that can move 160 Tbps, which will make it the highest-capacity cable on Earth. The cable even has a name, MAREA, and it will break ground (break waves?) later this year. Hopefully it can handle all your selfies.</p>'
-        },
-        {"_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-        {
-            "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-            "url": "https://youtu.be/AM2Ivdi9c4E"
-        },
-        {"_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
-    ];
+
 
 
     app.post("/api/page/:pageId/widget", createWidget);
@@ -39,81 +23,92 @@ module.exports = function(app) {
 
     function createWidget(req, res){
         var widget = req.body;
+        var pageId=widget.pageId;
+
+        console.log("why is type not going ?"+widget.type)
        
         var newWidget = {
-            _id: (new Date()).getTime() + "",
-            widgetType: widget.type,
+            type: widget.type,
             pageId: widget.pageId
         };
-        widgets.push(newWidget);
-       
-       
-        res.send(newWidget._id);
 
-
+        widgetModel
+            .createWidget(pageId,newWidget)
+            .then(
+                function (widget) {
+                    res.json(widget);
+                },
+                function (error) {
+                    res.status(400).send(error);
+                }
+            )
     }
 
     function findAllWidgetsForPage(req, res){
         var pageId = req.params.pageId;
-        var result = [];
-        for (var i in widgets) {
-            if (widgets[i].pageId === pageId) {
-                if((widgets[i].widgetType==="YOUTUBE"||widgets[i].widgetType==="IMAGE") &&( !("width" in widgets[i])|| (widgets[i].url==="")))
-                {console.log("happened")}
-                else if(widgets[i].widgetType==="HEADER" && !("size" in widgets[i]))
-                {}
-                else
-                {result.push(widgets[i]);}
+        var result=[];
 
-            }
-        }
-        res.json(result);
+        widgetModel.findAllWidgetsForPage(pageId)
+            .then(function (widgets) {
+
+                res.json(widgets);
+
+
+            },function (error) {
+                res.statusCode(400).send();
+
+            })
+
+
     }
 
 
     function findWidgetById(req, res){
         var widgetId=req.params.widgetId;
-        for(var i in widgets) {
-            if(widgets[i]._id === widgetId) {
-                res.send(widgets[i]);
-                return;
-            }
-        }
-        res.send({});
+        widgetModel.findWidgetById(widgetId)
+
+            .then(function (widget) {
+
+                res.send(widget);
+
+            },function (error) {
+                res.statusCode(400).send();
+
+            });
 
     }
+
     function updateWidget(req, res){
-        console.log("server reached")
+
         var widgetId=req.params.widgetId;
         var newWidget = req.body;
-        
-        for (var i in widgets) {
-            if (widgets[i]._id === widgetId) {
-                widgets[i].name = newWidget.name;
-                widgets[i].text = newWidget.text;
-                widgets[i].size = newWidget.size;
-                widgets[i].width = newWidget.width;
-                widgets[i].url = newWidget. url;
-        
-                res.send(200);
-                return;
-
-            }}
-        res.send(400);
+        widgetModel
+            .updateWidget(widgetId, newWidget)
+            .then(
+                function(stats) {
+                    console.log(stats);
+                    res.send(200);
+                },
+                function(error) {
+                    res.statusCode(404).send(error);
+                }
+            );
 
 
     }
     function deleteWidget(req, res){
         var widgetId=req.params.widgetId;
-        for (var i in widgets) {
-            if (widgets[i]._id === widgetId) {
-                widgets.splice(i, 1);
-                res.send(200);
-                return;
+        widgetModel.deleteWidget(widgetId)
 
+            .then(
+            function(stats) {
+                console.log(stats);
+                res.send(200);
+            },
+            function(error) {
+                res.statusCode(404).send(error);
             }
-        }
-        res.send(400);
+        );
 
     }
 
@@ -143,12 +138,22 @@ module.exports = function(app) {
         var mimetype = myFile.mimetype;
 
 
-            for (var i in widgets) {
-                if (widgets[i]._id === widgetId) {
-                    widgets[i].url = "/uploads/" + filename;
-                }
-            }
-            res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+
+            var url="/uploads/" + filename;
+
+
+            widgetModel
+                .updateImageUrl(widgetId, url)
+                .then(
+                    function(stats) {
+                        console.log(stats);
+                        res.redirect("/assignment/#/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+
+                    },
+                    function(error) {
+                        res.statusCode(404).send(error);
+                    }
+                );
         }
     }
 };

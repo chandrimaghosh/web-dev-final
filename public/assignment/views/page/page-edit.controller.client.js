@@ -16,7 +16,10 @@
 
            PageService.findPageById(vm.pageId)
                .then(function (response) {
+
+                   console.log("final"+response.data);
                    vm.page =response.data;
+                   console.log("final"+vm.page._id);
 
                })
         }
@@ -41,6 +44,8 @@
         }
 
         function updatePage(name, title) {
+            if (name)
+            {
 
            PageService.updatePage(vm.pageId, name, title)
                .then(function (response) {
@@ -54,6 +59,8 @@
 
                });
 
-        }
+        }else {
+                vm.error="Please enter name"
+            }}
     }
 })();

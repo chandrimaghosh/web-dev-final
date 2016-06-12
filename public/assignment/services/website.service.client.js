@@ -25,13 +25,13 @@
             
         }
 
-        function createWebsite(developerId, name, desc) {
+        function createWebsite(userId, name, desc) {
             var website = {
                 name: name,
                 description: desc,
-                developerId:developerId
+                developerId:userId
             };
-            return $http.post("/api/user/:userId/website", website);
+            return $http.post("/api/user/"+userId+"/website", website);
         }
 
         function updateWebsite(websiteId, name, desc) {
@@ -54,8 +54,9 @@
         }
 
         function findWebsiteById(websiteid) {
+            console.log("client side called with website id"+websiteid);
            var url= "/api/website/" + websiteid;
-            console.log(url);
+            
             return $http.get(url);
         }
     }

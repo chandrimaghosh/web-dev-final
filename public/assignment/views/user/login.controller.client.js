@@ -7,7 +7,10 @@
         var vm = this;
 
         vm.login = function(username, password) {
-            console.log("executed at controller");
+
+            if(username&&password)
+            {
+
             UserService
                 .findUserByUsernameAndPassword(username, password)
                 .then(function(response){
@@ -20,5 +23,13 @@
                     }
                 });
         }
+            else {
+                if(username)
+                vm.error="please enter password"
+                else
+                    vm.error="please  enter Username"
+
+            }}
+
     }
 })();

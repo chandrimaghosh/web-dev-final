@@ -15,6 +15,7 @@
             UserService.findUserById(id)
             .then(function (response) {
                 vm.user=response.data;
+                console.log("user is "+vm.user.firstName)
 
 
             });
@@ -32,7 +33,7 @@
 
             },
                 function (error) {
-                    console.log("error came?")
+                    
                     vm.error="unable to update"
                     
                 }

@@ -24,7 +24,6 @@
 
         function createPage(websiteID, name, title) {
             var newPage = {
-                _id: (new Date()).getTime() + "",
                 name: name,
                 title: title,
                 websiteId: websiteID
@@ -34,6 +33,7 @@
 
         function findPageById(pageId) {
             var url = "/api/page/" + pageId;
+            console.log("this is what i need"+$http.get(url).title)
             return $http.get(url);
         }
 

@@ -13,10 +13,6 @@
              WebsiteService.findWebsitesForUserId(vm.userId)
              .then(function (response) {
                   vm.websites=response.data;
-                 
-                
-
-
             });
         }
 

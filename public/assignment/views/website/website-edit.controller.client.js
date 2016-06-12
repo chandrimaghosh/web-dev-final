@@ -12,6 +12,7 @@
         vm.deleteWebsite = deleteWebsite;
         vm.updateWebsite = updateWebsite;
         function init() {
+            console.log("are we here?");
                  WebsiteService.findWebsiteById(vm.websiteId)
                  .then(function (response) {
                      vm.website =response.data;
@@ -31,6 +32,9 @@
         }
 
         function updateWebsite(name, desc) {
+            if (name)
+            {
+                console.log("name is "+name)
             WebsiteService.updateWebsite(vm.websiteId, name, desc)
                 .then(
                     function (response) {
@@ -45,5 +49,8 @@
                 );
 
         }
+            else {
+                vm.error="Please enter name"
+            }}
     }
 })();

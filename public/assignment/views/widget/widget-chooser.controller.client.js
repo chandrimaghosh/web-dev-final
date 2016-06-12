@@ -15,13 +15,16 @@
         vm.youtube = "youtube";
         vm.header = "header";
         vm.image = "image";
+        vm.html="html";
+        vm.text="text";
         function chooseEdit(wType) {
             console.log("edit");
             console.log(wType);
             if (wType === "youtube") {
                   WidgetService.createWidgetTypeandId("YOUTUBE", vm.pageId)
                       .then(function (response) {
-                          var widgetId=response.data
+                          var widget =response.data;
+                          var widgetId=widget._id;
                           $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
 
 
@@ -32,7 +35,9 @@
                 console.log("header");
                  WidgetService.createWidgetTypeandId("HEADER", vm.pageId)
                      .then(function (response) {
-                         var widgetId =response.data;
+                         var widget =response.data;
+                         var widgetId=widget._id;
+                         console.log("trying to fix this"+widgetId);
                          $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
 
                      });
@@ -42,7 +47,35 @@
                 WidgetService.createWidgetTypeandId("IMAGE", vm.pageId)
                     .then(
                         function (response) {
-                            var widgetId =response.data
+                            var widget =response.data;
+                            var widgetId=widget._id;
+                            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+
+
+                        }
+                    );
+            }
+
+            if (wType === "html") {
+                console.log("html");
+                WidgetService.createWidgetTypeandId("HTML", vm.pageId)
+                    .then(
+                        function (response) {
+                            var widget =response.data;
+                            var widgetId=widget._id;
+                            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
+
+
+                        }
+                    );
+            }
+            if (wType === "text") {
+                console.log("html");
+                WidgetService.createWidgetTypeandId("INPUT", vm.pageId)
+                    .then(
+                        function (response) {
+                            var widget =response.data;
+                            var widgetId=widget._id;
                             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + widgetId + "");
 
 

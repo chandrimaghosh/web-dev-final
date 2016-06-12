@@ -44,13 +44,16 @@
             return $http.get(url);
         }
 
-        function updateWidget(widgetId, name, text, size, width, url) {
+        function updateWidget(widgetId, name, text, size, width, url,formatted,rows,placeholder) {
             var widget = {
                 name: name,
                 text: text,
                 size:size,
                 width:width,
-                url:url
+                url:url,
+                formatted:formatted,
+                rows:rows,
+                placeholder:placeholder
 
             };
             var url = "/api/widget/" + widgetId;
