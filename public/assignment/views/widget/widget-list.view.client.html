@@ -23,7 +23,7 @@
 
 
  <div class="container">
-     {{model.widgets}}
+
    <div jga-sortable jga-sortable-callback="model.sortWidget(start, end)" >
     <div ng-repeat="widget in model.widgets | orderBy : 'order' " class="jga-widget">
         <div class="jga-widget-tool">
