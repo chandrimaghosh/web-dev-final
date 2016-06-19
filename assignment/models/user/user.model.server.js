@@ -13,10 +13,13 @@ module.exports = function() {
         findUserByCredentials: findUserByCredentials,
         findUserByUsername:findUserByUsername,
         updateUser: updateUser,
-        deleteUser: deleteUser
+        deleteUser: deleteUser,
+        findFacebookUser:findFacebookUser
     };
     return api;
-
+    function findFacebookUser(id) {
+        return User.findOne({"facebook.id": id});
+    }
     function updateUser(userId, user) {
         delete user._id;
         return User
