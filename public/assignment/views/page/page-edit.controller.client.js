@@ -54,13 +54,19 @@
                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
                    } else {
                        vm.error = "Unable to delete page";
+                       vm.msg = {type: 'error', text: 'Page name required'};
                    }
 
 
-               });
+               }
+               ,function (err) {
+                       vm.msg = {type: 'error', text: 'Page fail'};
+
+                   });
 
         }else {
                 vm.error="Please enter name"
+                vm.msg = {type: 'error', text: 'Page name required'};
             }}
     }
 })();

@@ -17,24 +17,29 @@
 
         init();
         function register(username, password, password2) {
-            if (password !== password2) {
+         if(!(username))
+            {
+                vm.error = "please enter username"
+                vm.msg = {type: 'username-missing', text:"pass2-missing" }
+            }
+           else if ((password)&&(password !== password2)&&(password2)) {
                 vm.error = "passwords dont match";
+                vm.msg = {type: 'pass-mismatch', text:"paswword mismatch" }
 
             }
                 else if(!(password))
             {
+                vm.msg = {type: 'pass1-missing', text:"pass2-missing" }
                 vm.error = "please enter password"
             }
             else if(!(password2))
             {
+                vm.msg = {type: 'pass2-missing', text:"pass2-missing" }
                 vm.error = "please enter password again to verify"
             }
-            else if(!(username))
-            {
-                vm.error = "please enter username"
-            }
+
             else {
-                console.log("hi");
+
                 UserService.register(username, password)
                     .then(function (response) {
                         console.log("returns");

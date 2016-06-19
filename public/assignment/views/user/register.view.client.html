@@ -6,10 +6,17 @@
     </div>
 
     <h1>Register</h1>
+    <div class="form-group" ng-class="{ 'has-error' : model.msg.type === 'username-missing'}">
     <input ng-model="username"
            type="text"
            class="form-control"
            placeholder="username"/>
+        <div ng-show="model.msg.type === 'username-missing'">
+            <div class="help-block">Please enter the username </div>
+        </div>
+
+
+        <div class="form-group" ng-class="{ 'has-error' : model.msg.type === 'pass1-missing'}">
 
     <input ng-model="password"
            id="password"
@@ -17,16 +24,28 @@
            class="form-control"
            placeholder="password"/>
         <div class="form-group" id="progress-bar-container">
-
+            <div ng-show="model.msg.type === 'pass1-missing'">
+                <div class="help-block">Please enter the pass </div>
+            </div>
 
     </div>
-    <input ng-model="password2"
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : model.msg.type === 'pass2-missing'}">
+         <input ng-model="password2"
             type="password"
            class="form-control"
            placeholder="verify password"/>
+            <div ng-show="model.msg.type === 'pass2-missing'">
+                <div class="help-block">Please enter the password again </div>
+            </div>
+            </div>
+        <div ng-show="model.msg.type === 'pass-mismatch'">
+            <div class="help-block">Passwords Don't Match </div>
+        </div>
 
 
-    <a class="btn btn-primary btn-block"
+            <a class="btn btn-primary btn-block"
        ng-click="model.register(username,password,password2)">Register</a>
     <a class="btn btn-danger  btn-block"
        href="#/login">Cancel</a>

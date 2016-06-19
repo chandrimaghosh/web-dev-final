@@ -34,7 +34,11 @@
                              $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
                          } else {
                              vm.error = "Unable to create Page";
+                             vm.msg = {type: 'error', text: 'Page name required'};
                          }
+
+                     },function (err) {
+                         vm.msg = {type: 'error', text: 'Page name required'};
 
                      }
                  );
@@ -42,7 +46,8 @@
 
 
         }
-           else {vm.error="name is required"}
+           else {vm.error="name is required"
+               vm.msg = {type: 'error', text: 'Page name required'};}
         }
     }
 })();

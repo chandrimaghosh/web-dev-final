@@ -57,7 +57,9 @@ p.navbar-text.pull-left {
 }
 
 
-
+form.ng-invalid.ng-submitted {
+    background-color: red;
+}
 .jga-widget-tool {
     position: absolute;
     right: 15px;

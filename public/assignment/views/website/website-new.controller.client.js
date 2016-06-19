@@ -10,7 +10,9 @@
         vm.userId = $routeParams.userId;
         vm.createWebsite = createWebsite;
         function createWebsite(name, description) {
-            console.log("nameis" +name);
+
+
+
            if(name)
            {
 
@@ -23,16 +25,23 @@
                 if (newWebsite) {
                     $location.url("/user/" + vm.userId + "/website");
                 } else {
-                    console.log("this executes"+vm.error);
-                    vm.error = "Unable to create website";
-                }
 
                 }
+
+                },
+               function (err) {
+                   vm.msg = {type: 'error', text: 'Unable to create website'};
+               }
+
                 
             );
 
         }
 
-    else {vm.error="name is required"}
+    else {vm.error="name is required"
+               vm.msg = {type: 'error', text: 'Website name required'};
+
+
+           }
     }}
 })();

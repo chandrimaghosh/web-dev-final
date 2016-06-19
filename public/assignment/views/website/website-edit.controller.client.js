@@ -46,11 +46,16 @@
                         }
 
                     }
+                    ,function (err) {
+                        vm.msg = {type: 'error', text: err.body};
+
+                    }
                 );
 
         }
             else {
                 vm.error="Please enter name"
+                vm.msg = {type: 'error', text: 'Website name required'};
             }}
     }
 })();

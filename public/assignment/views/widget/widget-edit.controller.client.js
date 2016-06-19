@@ -33,13 +33,18 @@
                                 $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
                             } else {
                                 vm.error = "Unable to update widget";
+                                vm.msg = {type: 'error', text: 'Unable to update'};
                             }
+                        },function (err) {
+
+                            vm.msg = {type: 'error', text: 'Unable to update'};
                         }
                     );
 
             }
             else {
                 vm.error="Please enter name"
+                vm.msg = {type: 'error', text: 'widget name required'};
             }
         }
 

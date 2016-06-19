@@ -1,8 +1,13 @@
 <div class="container">
     <form>
     Name
-    <input ng-model="model.widget.name" class="form-control"/>
-    Text
+        <div class="form-group" ng-class="{ 'has-error' : model.msg.type === 'error'}">
+    <input ng-model="model.widget.name" class="form-control " />
+       <div ng-show="model.msg.type === 'error'">
+        <div class="help-block">Please enter the text-input name</div>
+   </div>
+            </div>
+        Text
     <input ng-model="model.widget.text" class="form-control"/>
     Rows
     <input ng-model="model.widget.rows" class="form-control" type="number"/>
