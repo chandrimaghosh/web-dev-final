@@ -6,6 +6,7 @@ var mongoose = require("mongoose");
 
     module.exports = function() {
 
+
     var PageSchema = require("./page.schema.server")();
     var Page = mongoose.model("Page", PageSchema);
 
@@ -20,6 +21,7 @@ var mongoose = require("mongoose");
 
     function createPage(websiteId, page){
         page._website= websiteId;
+
         return Page.create(page);
     }
 
