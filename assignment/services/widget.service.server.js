@@ -4,6 +4,7 @@
 module.exports = function(app,models) {
 
     var widgetModel=models.widgetModel;
+    var pageModel = models.pageModel;
 
     var multer = require('multer'); // npm install multer --save
     var upload = multer({ dest: __dirname+'/../../public/uploads' });
@@ -27,7 +28,7 @@ module.exports = function(app,models) {
         var widget = req.body;
         var pageId=widget.pageId;
 
-        console.log("why is type not going ?"+widget.type)
+
        
         var newWidget = {
             type: widget.type,

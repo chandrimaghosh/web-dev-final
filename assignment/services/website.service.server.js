@@ -3,7 +3,7 @@
  */
 module.exports = function(app,models) {
     var websiteModel=models.websiteModel;
-
+    var userModel = models.userModel;
     var websites = [
         { "_id": "123", "name": "Facebook",    "developerId": "456" },
         { "_id": "234", "name": "Tweeter",     "developerId": "456" },
@@ -21,21 +21,31 @@ module.exports = function(app,models) {
 
     function createWebsite(req, res){
         var userId = req.params.userId;
-        var website = req.body;
-        console.log("trying to create website");
-        console.log("trying to create website with userid"+userId);
-
+        var website = {};
+        website.name = req.body.name;
+        website.description = req.body.description;
         websiteModel
             .createWebsite(userId, website)
-            .then(
-                function (website) {
-                    res.json(website);
-                },
-                function (error) {
-                    res.status(400).send(error);
+            .then(function (website) {
+                return website;
+            }, function (error) {
+                return res.status(400).send(error);
+            })
+            .then(function (website) {
+                if (website) {
+                    userModel
+                        .findUserById(userId)
+                        .then(function (user) {
+                            user.websites.push(website._id);
+                            return user.save();
+                        }, function (error) {
+                            return res.status(400).send(error);
+                        });
                 }
-            )
-
+            })
+            .then(function (user) {
+                return res.sendStatus(201);
+            });
      
     }
     function findAllWebsitesForUser(req, res){

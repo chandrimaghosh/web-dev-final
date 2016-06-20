@@ -20,23 +20,33 @@ module.exports = function(app,models) {
 
 
     function createPage(req, res){
-        var websiteId=req.params.websiteId;
+        var websiteId = req.params.websiteId;
         var page = req.body;
-
-
-
         pageModel
             .createPage(websiteId, page)
-            .then(
-                function (page) {
-                    res.json(page);
-                },
-                function (error) {
-                    res.status(400).send(error);
+            .then(function (page) {
+                return page;
+            }, function (error) {
+                return res.status(400);
+            })
+            .then(function (page) {
+                if (page) {
+                    websiteModel
+                        .findWebsiteById(websiteId)
+                        .then(function (website) {
+                            website.pages.push(page._id);
+                            return website.save();
+                        }, function (error) {
+                            return res.status(400).send(error);
+                        });
                 }
-            )
-
-
+            })
+            .then(function () {
+                return res.sendStatus(201);
+            }, function (error) {
+                console.error(error);
+                return res.status(400);
+            });
     }
     function findAllPagesForWebsite(req, res){
         var websiteId=req.params.websiteId;
