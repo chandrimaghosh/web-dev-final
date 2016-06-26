@@ -2,6 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a52233f-354d-4b78-912a-4aec6c6e0044" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/bsondump" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongo" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongod" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongodump" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongoexport" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongofiles" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongoimport" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongooplog" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongoperf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongorestore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongos" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongosniff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongostat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/bin/mongotop" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/bsondump" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongo" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongod" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongodump" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongoexport" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongofiles" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongoimport" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongooplog" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongoperf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongorestore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongos" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongosniff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongostat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/bin/mongotop" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/GNU-AGPL-3.0" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/MPL-2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb-osx-x86_64-3.2.6/THIRD-PARTY-NOTICES" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/GNU-AGPL-3.0" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/MPL-2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mongodb/THIRD-PARTY-NOTICES" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web-devlop.iws" />
@@ -160,6 +196,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-devlop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web-devlop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -286,12 +336,12 @@
       <workItem from="1466319756505" duration="2155000" />
       <workItem from="1466322143823" duration="1035000" />
       <workItem from="1466353793939" duration="20059000" />
-      <workItem from="1466794293070" duration="49466000" />
+      <workItem from="1466794293070" duration="49697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331993000" />
+    <option name="totallyTimeSpent" value="332224000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -306,15 +356,15 @@
     <frame x="1" y="23" width="1304" height="728" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34684333" sideWeight="0.709375" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34684333" sideWeight="0.6458333" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42897728" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34684333" sideWeight="0.290625" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34684333" sideWeight="0.35416666" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2494043" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47540984" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.76393443" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30897537" sideWeight="0.5114286" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4243421" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
