@@ -1,30 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>Web Dev Course Home Page</title>
-</head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+</head><!--/head-->
+
 <body>
-    <h1>Web Dev Course Home Page</h1>
 
-    <p>
-        Customize this home page to your linking.
-    </p>
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/index.html">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/chandrimaghosh/ghosh-chandrima-webdevlop">Your public repository at GitHub.com</a>
-        </li>
-    </ul>
+
+<header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <div    class="carousel-inner">
+            <div class="item active"  >
+                <img   id="sliderimage" class="img-responsive" src="images/slider/1.png" alt="">
+                <div class="caption">
+                    <h2 class="animated fadeInLeftBig">Chandrima Ghosh<span></span></h2>
+                    <h1 class="animated fadeInLeftBig"><span></span></h1>
+                    <p class="animated fadeInRightBig">MEAN Stack and IOS Application Developer</p>
+
+                </div>
+            </div>
+            <div class="item" >
+                <img   id="sliderimage2" class="img-responsive" src="images/slider/2.jpg" alt="">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig"> MotorBike Enthusiast<span></span></h1>
+                    <p class="animated fadeInRightBig">Four Wheels move the body ,two wheels move the soul</p>
+
+                </div>
+            </div>
+            <div class="item img-responsive">
+                <img  id="sliderimage3"  class="img-responsive" src="images/slider/3.jpg" alt="">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Avid Traveller<span></span></h1>
+                    <p class="animated fadeInRightBig">“Wherever you go becomes a part of you somehow.”</p>
+                </div>
+            </div>
+        </div>
+        <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+        <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+        <a id="tohash" href="#services"><i class="fa fa-angle-down"></i></a>
+
+    </div><!--/#home-slider-->
+    <div class="main-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="scroll active"><a href="#home">Home</a></li>
+
+                    <li class="scroll"><a href="#about-us">About Me</a></li>
+                    <li class="scroll"><a href="#portfolio">Assignment</a></li>
+                    <li class="scroll"><a href="#blog">Project</a></li>
+                    <li class="scroll"><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!--/#main-nav-->
+</header><!--/#home-->
+<section id="about-us" class="parallax">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="about-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <h2>About Me</h2>
+                    <p>I am graduate student at Northeastern University pursuing master's in computer science. I was Software Engineer for Infosys,India for 3 years. My interest are Mobile Application Development and Web Development. I have  worked as full stack developer . </p>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <p class="lead">Mobile Application Development</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="75">75%</div>
+                        </div>
+                    </div>
+                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="400ms">
+                        <p class="lead">Web Design</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="80">80%</div>
+                        </div>
+                    </div>
+                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+                        <p class="lead"> Java Programming</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="75">75%</div>
+                        </div>
+                    </div>
+                    <div class="single-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <p class="lead">Fun</p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-primary six-sec-ease-in-out" role="progressbar"  aria-valuetransitiongoal="85">85%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#about-us-->
+
+
+
+<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                <h2>Web App Maker</h2>
+<p>
+    A Website that allows Users to create web pages with variety of widgets  and share them on the Web as single page or embedded in their own Web pages. Users can login to their account and see the websites they have built at a website level, page level or widget level.
+</p>            </div>
+        </div>
+
+
+        <div class="container ">
+            <div class="row">
+                <div class="col-sm-8  col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="post-thumb">
+                        <div id="post-carousel2"  class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#post-carousel2" data-slide-to="0" class="active"></li>
+                                <li data-target="#post-carousel2" data-slide-to="1"></li>
+                                <li data-target="#post-carousel2" data-slide-to="2"></li>
+                                <li data-target="#post-carousel2" data-slide-to="3"></li>
+                                <li data-target="#post-carousel2" data-slide-to="4"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/1.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/2.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/3.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/4.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/5.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/6.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/7.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/8.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/9.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/10.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="/assignment/#/loginindex.html"><img class="img-responsive" src="images/portfolio/11.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <a class="blog-left-control" href="#post-carousel2" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                            <a class="blog-right-control" href="#post-carousel2" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="entry-header">
+                        <h3><a href="/assignment/#/loginindex.html">View Assignment</a></h3>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section><!--/#blog-->
+
+
+<section id="twitter" class="parallax">
+    <div>
+        <a class="twitter-left-control" href="#twitter-carousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+        <a class="twitter-right-control" href="#twitter-carousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="twitter-icon text-center">
+                        <img class="img-responsive" src="images/portfolio/mark-github.png" alt="">
+                        <h4>chandrimaghosh</h4>
+                    </div>
+                    <div id="twitter-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <p>GitHub link to Project:  <a href="https://github.com/Fish360/Fish360Journal"><span>Fish360</span> </a></p>
+                            </div>
+                            <div class="item">
+                                <p>GitHub link to Assignment: <a href="https://github.com/chandrimaghosh/ghosh-chandrima-webdevlop"><span>WebAppMaker</span> </a></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#twitter-->
+
+<section id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                <h2>Fish 360</h2>
+                <p>Fish360  provides a secure online fishing application The application fishing journal allows you to manage your fishing trips, fish, hot spots, and gear in a simple and fully integrated way.</p>
+            </div>
+        </div>
+
+
+<div class="container ">
+    <div class="row">
+                <div class="col-sm-8  col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="post-thumb">
+                        <div id="post-carousel"  class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#post-carousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#post-carousel" data-slide-to="1"></li>
+                                <li data-target="#post-carousel" data-slide-to="2"></li>
+                                <li data-target="#post-carousel" data-slide-to="3"></li>
+                                <li data-target="#post-carousel" data-slide-to="4"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <a href="project/index.html"><img class="img-responsive" src="images/blog/2.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="project/index.html"><img class="img-responsive" src="images/blog/1.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="project/index.html"><img class="img-responsive" src="images/blog/6.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="project/index.html"><img class="img-responsive" src="images/blog/3.jpg" alt=""></a>
+                                </div>
+                                <div class="item">
+                                    <a href="project/index.html"><img class="img-responsive" src="images/blog/4.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <a class="blog-left-control" href="#post-carousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                            <a class="blog-right-control" href="#post-carousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="entry-header">
+                        <h3><a href="project/index.html">View Project</a></h3>
+
+                    </div>
+
+                </div>
+</div>
+
+
+        </div>
+    </div>
+</section><!--/#blog-->
+
+
+
+<section id="contact">
+    <div id="contact-us" class="parallax">
+        <div class="container">
+            <div class="row">
+                <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <h2>Contact Me</h2>
+                    <p>Please feel free to drop me an email in case of any queries</p>
+                </div>
+            </div>
+            <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <form id="main-contact-form" name="contact-form" method="post" action="#">
+                            <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control" placeholder="Email Address" required="required">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="subject" class="form-control" placeholder="Subject" required="required">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn-submit">Send Now</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="contact-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+                           <p> Lets Grab a Coffee?</p>
+                           <ul class="address">
+                                <li><i class="fa fa-map-marker"></i> <span> Address:</span> 11 Parker Hill Avenue,Boston </li>
+                                <li><i class="fa fa-phone"></i> <span> Phone:</span> 508 375 8856 </li>
+                                <li><i class="fa fa-envelope"></i> <span> Email:</span><a href="mailto:ghosh.c@husky.neu.edu">ghosh.c@husky.neu.edu </a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section><!--/#contact-->
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="js/jquery.inview.min.js"></script>
+<script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="js/mousescroll.js"></script>
+<script type="text/javascript" src="js/smoothscroll.js"></script>
+<script type="text/javascript" src="js/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/lightbox.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
 </body>
 </html>
