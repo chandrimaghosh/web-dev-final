@@ -32,8 +32,8 @@ module.exports = function(app,models) {
     passport.use('wam',new LocalStrategy(localStrategy));
 
     var facebookConfig = {
-            clientID     : process.env.FACEBOOK_CLIENT_ID,
-            clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+            clientID     : "943185789119309",
+            clientSecret : "e0a8576360d202d970f0f6c73ece9138",
             callbackURL  : process.env.FACEBOOK_CALLBACK_URL
         }
     passport.use('facebook', new FacebookStrategy(facebookConfig, facebookLogin));
